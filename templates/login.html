@@ -6,12 +6,28 @@
     <title>login page</title>
 </head>
 <body>
+    <h1> Login </h1>
     <nav>
         <a href='/' > Home </a>
     </nav>
-    <div>
+    <form method = 'post' action = '/login'>
         
+
+    <div>
+        <label> E-mail: </label>
+        <input type = 'email' name = 'e_mail' placeholder = "E-mail" required > <br>
     </div>
+
+    <div>
+        <label> Password: </label>
+        <input type = 'password' name = 'pass_word' placeholder = 'Password' required > <br>
+    </div>
+
+    </div>
+        
+        <input type = 'submit'  value="Login" >
+
+    </form>
     
 </body>
 </html>
