@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patient dashboard</title>
+</head>
+<body>
+    <h1> Dashboard </h1>
+    <a href = '/edit_profile/{{user.email}}'> Edit Profile </a>
+    
+    <h3> Departments</h3>
+
+    {% for dept in departments %}
+
+         <a href = '/{{dept.name}}'> {{dept.name}} </a> <br>
+
+    {% endfor %}
+
+    
+    
+</body>
+</html>

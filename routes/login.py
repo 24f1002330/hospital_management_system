@@ -5,19 +5,19 @@ def Login(app):
     @app.route('/login',methods=['GET','POST'])
     def login():
         if request.method=='POST':
-            email = request.form['e_mail']
-            password = request.form['pass_word'] 
+            Email = request.form['e_mail']
+            Password = request.form['pass_word'] 
 
-            user = Users.query.filter(Users.email == email) . first()
+            user = Users.query.filter(Users.email == Email) . first()
 
             if user :
-                if user.password == password :
-                    return "User found"
+                if user.password == Password :
+                    return redirect(url_for('dashboard_patient', user_email = user.email))  # reusing the email variable
                 
                 else :
-                    return " Incorrect Password"
+                     return render_template("incorrect_login.html")
             else:
-                return "User not found"
+                 return render_template ("User_not_found.html")
 
             return redirect(url_for('home'))
         return render_template('login.html')

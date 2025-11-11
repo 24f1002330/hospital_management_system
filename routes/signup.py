@@ -12,18 +12,22 @@ def Signup(app):
               existing_user =  Users.query.filter(Users.email == Email).first()
 
               if existing_user:
-                   return "User with this E-mail already exists"
+                       return render_template("incorrect_signup.html")
                    
               
               new_user=Users(
                              username = Username,
                              email = Email,
                              password = Password,
-                             usertype = 'patient'
+                             
                             )
               
               db.session.add(new_user)
               db.session.commit()
+
+              return render_template("landingpage.html")
+
+
 
          return render_template('signup_patient.html')
             
